@@ -10,7 +10,7 @@
   height: 100vh;
 }
 .admin-main-panel {
-  background-color: #fff7dc;
+  background-color: #f3ecf6;
   overflow: auto;
   position: relative;
   float: right;
@@ -23,8 +23,8 @@
   margin-bottom: 70px;
   padding: 30px 15px;
   min-height: calc(100vh - 123px);
-  background: url('../assets/background.png');
+  /* background: url('../assets/background.png');
   background-repeat: no-repeat;
   background-size: 70% 70%;
-  background-position: center;
+  background-position: center; */
 }

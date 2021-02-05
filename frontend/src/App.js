@@ -1,40 +1,36 @@
 import React from "react";
-import { history } from './helpers';
 import { connect } from 'react-redux';
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Login } from './views/Login';
-import { Register } from './views/Register';
+import Login from './views/Login';
+import Register from './views/Register';
+import { PrivateRoute } from './components/PrivateRoute';
 import Manager from "./views/Manager";
 import AdminStore from "./views/AdminStore";
 import Admin from "./layouts/Admin.js";
 
 
-class App extends React.Component {
+class AppConnect extends React.Component {
   render(){
     return(
-      <Router history={history}>
-        <Switch>
-          {RenderView()}
-          <Route path="/admin/home" component={Admin} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Redirect from="/" to="/admin/home" />
-        </Switch>
-      </Router>
-
+      <Switch>
+        <PrivateRoute exact path="/adminstore" component={AdminStore} />
+        <PrivateRoute exact path="/manager" component={Manager} />
+        <Route path="/admin" component={Admin} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Redirect from="*" to="/admin/home" />
+      </Switch>
     );
   }
 }
 
-function mapState(state) {
-}
+const mapStateToProps = state => {};
 
-const actionCreators = {
-};
+const mapDispatchToProps = {};
 
-const connectedApp = connect(mapState, actionCreators)(App);
-export { connectedApp as App };
+const App = connect(mapStateToProps, mapDispatchToProps)(AppConnect);
+export default App;
 
 function RenderView() {
   if (localStorage.getItem('user')) {
