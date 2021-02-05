@@ -1,9 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
-  Card, CardText, CardBody,
-  CardTitle, CardSubtitle,
-   Row, Col,
+  Card,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  Row,
+  Col,
 } from 'reactstrap';
 import PropTypes from "prop-types";
 import StarIcon from '@material-ui/icons/Star';
