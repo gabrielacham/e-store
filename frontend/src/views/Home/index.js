@@ -100,19 +100,19 @@ export default function Home(props) {
 
   const [cartModal, setCartModal] = useState(false);
 
-    var products = [];
-    data.forEach((item, i) => {
-      products.push(
-        <ProductCard
-          key={i}
-          title={item.nombre}
-          discount={item.descuento}
-          price= {item.precio}
-          value= {item.id}
-          id= {item.id}
-         />
-      )
-    });
+  var products = [];
+  data.forEach((item, i) => {
+    products.push(
+      <ProductCard
+        key={i}
+        title={item.nombre}
+        discount={item.descuento}
+        price= {item.precio}
+        calification= {item.id}
+        id= {item.id}
+       />
+    )
+  });
 
   const toggleCartModal = () => setCartModal(!cartModal);
 
@@ -154,40 +154,55 @@ export default function Home(props) {
     return(
         <Form>
           <Col>
-          {/* Init Modal */}
-          <Modal
-            isOpen={cartModal}
-            toggle={toggleCartModal}
-          >
-            <ModalHeader className='d-flex justify-content-center'>
-              <Col>
-                <Row className='justify-content-center h4'>
-                  <Label className='h4'>
-                    Carrito de Compras
-                  </Label>
-                </Row>
-              </Col>
-            </ModalHeader>
-            <ModalBody className='d-flex justify-content-center'>
-              <Col>
-                {renderCart(cart)}
-              </Col>
-            </ModalBody>
-            <ModalFooter>
-              <Button onClick={toggleCartModal}>
-                Comprar
-              </Button>
-            </ModalFooter>
-          </Modal>
-            <Row className='justify-content-between'>
-              <Label className='h2'>
-                Home
-              </Label>
-              <ShoppingCartIcon
-                onClick={toggleCartModal}
-                className='home-cart-icon'
-              />
-            </Row>
+            {/* Cart Modal */}
+            <Modal
+              isOpen={cartModal}
+              toggle={toggleCartModal}
+            >
+              <ModalHeader className='d-flex justify-content-center'>
+                <Col>
+                  <Row className='justify-content-center h4'>
+                    <Label className='h4'>
+                      Carrito de Compras
+                    </Label>
+                  </Row>
+                </Col>
+              </ModalHeader>
+              <ModalBody className='d-flex justify-content-center'>
+                <Col>
+                  {renderCart(cart)}
+                </Col>
+              </ModalBody>
+              <ModalFooter>
+                <Button onClick={toggleCartModal}>
+                  Comprar
+                </Button>
+              </ModalFooter>
+            </Modal>
+
+           {/* Header Row */}
+           <Row className='mb-3'>
+             <Col sm='2'>
+               <Label className='h2'>
+                 Home
+               </Label>
+             </Col>
+
+             {/* View Title */}
+             <Col sm='8' className='d-flex justify-content-center'>
+               <Label className='h2'>
+                 Input
+               </Label>
+             </Col>
+
+             {/* Cart */}
+             <Col sm='2' className='d-flex justify-content-end'>
+               <ShoppingCartIcon
+                 onClick={toggleCartModal}
+                 className='home-cart-icon'
+               />
+             </Col>
+           </Row>
             <Row className='p-2'>
               {products}
             </Row>

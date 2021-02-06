@@ -19,10 +19,11 @@ export default function ProductCard(props) {
     title,
     discount,
     price,
-    value
+    calification,
+    id
   } = props;
   var stars = [];
-  for (var i = 0; i < value; i++) {
+  for (var i = 0; i < calification; i++) {
       stars.push(<StarIcon key={i} style={{ color: '#F5C116' }} />);
   };
   const handleOnClick = () => {
@@ -37,11 +38,8 @@ export default function ProductCard(props) {
           <Row className='justify-content-end'>
             <NavLink
               href="/admin/productdetails"
-              to={{
-                pathname:"/admin/productdetails" ,
-                aboutProps:props
-                }}
-                className="product-card-link btn btn-link"
+              to={`/admin/productdetails?id=${id}`}
+              className="product-card-link btn btn-link"
               >
                 Detalles
               </NavLink>
@@ -56,7 +54,7 @@ ProductCard.propTypes = {
   title: PropTypes.string,
   discount: PropTypes.number,
   price: PropTypes.number,
-  value: PropTypes.number,
+  calification: PropTypes.number,
   id: PropTypes.number,
 };
 

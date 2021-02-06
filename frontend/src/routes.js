@@ -1,5 +1,6 @@
 import {Home} from "./views/Home/";
 import ProductDetails  from "./views/ProductDetails/";
+import Store  from "./views/Store/";
 
 const dashboardRoutes = [
   {
@@ -12,6 +13,12 @@ const dashboardRoutes = [
     path: "/productdetails",
     name: "Detalle de Producto",
     component: ProductDetails,
+    layout: "/admin",
+  },
+  {
+    path: "/store",
+    name: "Tienda",
+    component: Store,
     layout: "/admin",
   },
 ];
