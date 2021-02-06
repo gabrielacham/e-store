@@ -17,6 +17,23 @@ export default function Header(props) {
 
   const toggle = () => setOpen(!isOpen);
 
+  function renderLoggedOptions(){
+    return (
+      <DropdownMenu>
+        <DropdownItem>Editar Usuario</DropdownItem>
+        <DropdownItem>Cerrar Sesion</DropdownItem>
+      </DropdownMenu>
+    );
+  }
+
+  function renderLoginOptions(){
+    return (
+      <DropdownMenu>
+      <DropdownItem>Registrarse</DropdownItem>
+      <DropdownItem>Iniciar Sesion</DropdownItem>
+      </DropdownMenu>
+    );
+  }
   return (
     <div>
       <Navbar color="faded" light>
@@ -38,10 +55,11 @@ export default function Header(props) {
                 height: '2em'
               }}/>
           </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem>Another Action</DropdownItem>
-            <DropdownItem>Another Action</DropdownItem>
-          </DropdownMenu>
+            {
+              localStorage.getItem('user')
+                  ? renderLoggedOptions()
+                  : renderLoginOptions()
+            }
         </ButtonDropdown>
       </Navbar>
     </div>

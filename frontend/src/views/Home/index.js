@@ -10,6 +10,7 @@ import {
   ModalBody,
   ModalFooter,
   Input,
+  FormGroup,
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -100,6 +101,7 @@ export default function Home(props) {
 
   const [cartModal, setCartModal] = useState(false);
 
+
   var products = [];
   data.forEach((item, i) => {
     products.push(
@@ -185,21 +187,39 @@ export default function Home(props) {
 
            {/* Header Row */}
            <Row className='mb-3'>
-             <Col sm='2'>
-               <Label className='h2 text-white'>
-                 Home
-               </Label>
-             </Col>
 
              {/* View Title */}
-             <Col sm='8' className='d-flex justify-content-center'>
-               <Label className='h2 text-white'>
-                 Input
-               </Label>
+             <Col sm='10' className='d-flex justify-content-center'>
+               <Row className='w-100 mx-0'>
+                  <Col>
+                    <FormGroup>
+                      <Label className='h2 text-white' for="categorias" sm={2}>Categorías</Label>
+                        <Input type="select" name="categorias" id="categorias">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </Input>
+                    </FormGroup>
+                  </Col>
+                  <Col>
+                    <FormGroup>
+                      <Label className='h2 text-white' for="subcategorias" sm={2}>Subcategorías</Label>
+                        <Input type="select" name="subcategorias" id="subcategorias">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </Input>
+                    </FormGroup>
+                  </Col>
+               </Row>
              </Col>
 
              {/* Cart */}
-             <Col sm='2' className='d-flex justify-content-end'>
+             <Col sm='2' className='d-flex align-items-center justify-content-end'>
                <ShoppingCartIcon
                  onClick={toggleCartModal}
                  className='home-cart-icon'

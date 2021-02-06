@@ -14,8 +14,7 @@ class AppConnect extends React.Component {
   render(){
     return(
       <Switch>
-        <PrivateRoute exact path="/adminstore" component={AdminStore} />
-        <PrivateRoute exact path="/manager" component={Manager} />
+        {RenderView()}
         <Route path="/admin" component={Admin} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
@@ -51,7 +50,7 @@ function RenderView() {
          path: '/admin',
          component: Admin
        }}
-     <Route
+     <PrivateRoute
        exact
        path={view.path}
        component={view.component}
