@@ -203,6 +203,8 @@ export default function Home(props) {
                />
              </Col>
            </Row>
+
+           {/* Products*/}
             <Row className='p-2'>
               {products}
             </Row>

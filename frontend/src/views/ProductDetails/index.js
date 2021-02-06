@@ -156,7 +156,7 @@ export default function ProductDetails(props) {
              to="/admin/home"
              className="product-card-link btn btn-link"
             >
-             Regresar
+             Inicio
             </NavLink>
           </Col>
 
@@ -250,7 +250,7 @@ export default function ProductDetails(props) {
                   <StoreIcon style={{ color: '#5EB837', width: '1.5em', height: '1.5em' }} />
                   <NavLink
                     href="/admin/productdetails"
-                    to={`/admin/store?id=${id}`}
+                    to={`/admin/store?store=${id}&product=${id}`}
                       className="product-card-link h-3 btn btn-link"
                     >
                       Tienda 1
