@@ -186,14 +186,14 @@ export default function Home(props) {
            {/* Header Row */}
            <Row className='mb-3'>
              <Col sm='2'>
-               <Label className='h2'>
+               <Label className='h2 text-white'>
                  Home
                </Label>
              </Col>
 
              {/* View Title */}
              <Col sm='8' className='d-flex justify-content-center'>
-               <Label className='h2'>
+               <Label className='h2 text-white'>
                  Input
                </Label>
              </Col>

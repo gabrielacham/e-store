@@ -1,3 +1,8 @@
+/* backgroud colors posibilities
+  #3e3836
+  #f3efd2
+*/
+
 .admin-container {
   padding-right: 15px;
   padding-left: 15px;
@@ -10,7 +15,7 @@
   height: 100vh;
 }
 .admin-main-panel {
-  background-color: #f3ecf6;
+  background-color: #3e3836;
   overflow: auto;
   position: relative;
   float: right;

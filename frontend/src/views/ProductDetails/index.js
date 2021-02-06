@@ -162,7 +162,7 @@ export default function ProductDetails(props) {
 
           {/* View Title */}
           <Col sm='8' className='d-flex justify-content-center'>
-            <Label className='h2'>
+            <Label className='h2 text-white'>
               Detalles de Producto
             </Label>
           </Col>

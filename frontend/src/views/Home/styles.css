@@ -17,10 +17,10 @@
 .btn-secondary.focus, .btn-secondary:focus {
     background-color: #3b821d;
     border-color: #3b821d;
-    box-shadow: 0 0 0 0.2rem rgb(215 174 130 / 50%);
+    box-shadow: 0 0 0 0.2rem transparent;
 }
 .btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-secondary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgb(215 174 130 / 50%);
+    box-shadow: 0 0 0 0.2rem transparent;
 }
 .btn-secondary:hover {
   background-color: #3b821d;

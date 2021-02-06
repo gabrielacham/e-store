@@ -107,7 +107,7 @@ export default function Store(props) {
 
          {/* View Title */}
          <Col sm='8' className='d-flex justify-content-center'>
-           <Label className='h2'>
+           <Label className='h2 text-white'>
              Tienda {storeid}
            </Label>
          </Col>
@@ -118,7 +118,7 @@ export default function Store(props) {
        </Row>
 
        <Row className='mx-0'>
-         <Label className='h4'>
+         <Label className='h4 text-white'>
            Productos:
          </Label>
        </Row>
