@@ -7,6 +7,12 @@ import {
   Button,
   Card,
   CardBody,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Input,
+  FormGroup,
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import './styles.css';
@@ -71,18 +77,21 @@ const data = [
 export default function Order(props) {
 
   const [total, setTotal] = useState(0);
+  const [modal, setModal] = useState(false);
 
   function subtotal (price, cantidad) {
     setTotal(total+(price*cantidad))
   }
 
+  const toggleModal = () => setModal(!modal);
 
   function renderProducts(products) {
     if (products){
       return (
         products.map((el, key) => {
           return (
-            <Col key={key}>
+            <Col key={key} className='mb-3'>
+              {/* Render Bill Item */}
               <Row className='mx-0 justify-content-between'>
                 <Label className='h5'>
                   {el.nombre}
@@ -91,8 +100,13 @@ export default function Order(props) {
                   {el.precio * el.precio}
                 </Label>
               </Row>
-              <Row className='mx-0'>
-                <Label className='h6'>Cantidad: {el.precio}</Label>
+              <Row className='mx-0 justify-content-between'>
+                <Label className='h6 mb-0'>
+                  Cantidad: {el.precio}
+                </Label>
+                <Button onClick={() => toggleModal()} className='valorar-producto'>
+                  Valorar
+                </Button>
               </Row>
             </Col>
           );
@@ -177,6 +191,55 @@ export default function Order(props) {
               </Row>
             </CardBody>
           </Card>
+          {/* Valorar Modal */}
+          <Modal
+            isOpen={modal}
+            toggle={toggleModal}
+          >
+            <ModalHeader className='d-flex justify-content-center'>
+              <Col>
+                <Row className='justify-content-center h4'>
+                  <Label className='h4'>
+                    Valorar Producto
+                  </Label>
+                </Row>
+              </Col>
+            </ModalHeader>
+            <ModalBody className='d-flex justify-content-center'>
+              <Col>
+                <Row className='mx-0 mb-3 justify-content-between'>
+                  <Label className='' for='cantidad'>
+                    Puntuación (1-5)
+                  </Label>
+                  <Input
+                    className='w-25'
+                    type="number"
+                    name="cantidad"
+                    id="cantidad"
+                  />
+                </Row>
+                <FormGroup>
+                  <Label for="descripcion">
+                    Comentario
+                  </Label>
+                  <Input
+                    className='w-100'
+                    type="textarea"
+                    name="descripcion"
+                    id="descripcion"
+                  />
+                </FormGroup>
+
+              </Col>
+            </ModalBody>
+            <ModalFooter>
+              <Button
+               onClick={() => toggleModal()}
+              >
+                Aceptar
+              </Button>
+            </ModalFooter>
+          </Modal>
         </Row>
      </Col>
   );
