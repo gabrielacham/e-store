@@ -10,11 +10,11 @@ import {
   ModalBody,
   ModalFooter,
   Input,
-  Button
 } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import "./styles.css";
 import ProductCard from '../../components/ProductCard';
+import "./styles.css";
 
 const data = [
   {
@@ -174,9 +174,12 @@ export default function Home(props) {
                 </Col>
               </ModalBody>
               <ModalFooter>
-                <Button onClick={toggleCartModal}>
-                  Comprar
-                </Button>
+                <NavLink
+                 to="/admin/order"
+                 className="btn btn-secondary"
+                >
+                 Comprar
+                </NavLink>
               </ModalFooter>
             </Modal>
 

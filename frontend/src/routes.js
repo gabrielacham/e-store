@@ -1,6 +1,7 @@
-import {Home} from "./views/Home/";
+import { Home } from "./views/Home/";
 import ProductDetails  from "./views/ProductDetails/";
 import Store  from "./views/Store/";
+import Order  from "./views/Order/";
 
 const dashboardRoutes = [
   {
@@ -19,6 +20,12 @@ const dashboardRoutes = [
     path: "/store",
     name: "Tienda",
     component: Store,
+    layout: "/admin",
+  },
+  {
+    path: "/order",
+    name: "Pedido",
+    component: Order,
     layout: "/admin",
   },
 ];
